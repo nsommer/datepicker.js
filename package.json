@@ -1,0 +1,31 @@
+{
+  "name": "datepicker.js",
+  "version": "0.1.0",
+  "description": "Zero-configuration datepicker with swappable CSS, semantic HTML5 markup and customizable through HTML5 data attributes",
+  "main": "dist/datepicker.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "date",
+    "time",
+    "datepicker",
+    "timepicker",
+    "js"
+  ],
+  "author": "Nils Sommer",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
