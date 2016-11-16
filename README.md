@@ -49,7 +49,7 @@ Well, IE sucks ...
 ## Development
 
 ```bash
-git pull <TODO: Use correct URL>
+git pull https://github.com/nsommer/datepicker.js.git
 cd datepicker
 npm install
 grunt build
