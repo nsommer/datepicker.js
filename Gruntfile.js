@@ -37,6 +37,16 @@ module.exports = function (grunt) {
         files: ['coffee/**/*.coffee'],
         tasks: ['build-js']
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.',
+          keepalive: true
+        }
+      }
     }
   })
 
@@ -44,6 +54,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('build-js', ['clean:js', 'coffee', 'uglify']);
   grunt.registerTask('build', ['build-js']);

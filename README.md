@@ -62,6 +62,7 @@ The Gruntfile provides some useful tasks you can use.
 | `grunt build` | Builds the js file, a minified version and a source map. |
 | `grunt watch` | Watches for file changes and rebuilds. |
 | `grunt clean` | Cleans shit away. |
+| `grunt connect` | Serves the working directory via HTTP at port 8000. |
 
 ## License
 
