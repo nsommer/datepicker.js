@@ -72,11 +72,11 @@ module.exports = function (grunt) {
     watch: {
       coffee: {
         files: ['coffee/**/*.coffee'],
-        tasks: ['build-js']
+        tasks: ['build:js']
       },
       scss: {
         files: ['scss/**/*.scss'],
-        tasks: ['build-css']
+        tasks: ['build:css']
       }
     },
 
