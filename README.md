@@ -60,15 +60,11 @@ The Gruntfile provides some useful tasks you can use.
 | Task | Description |
 |------|-------------|
 | `grunt build` | Builds the js and css files including minified versions and source maps. |
-| `grunt build-js` | Builds the js file including a minified version and source maps. |
-| `grunt build-css` | Builds the css file including a minified version and source maps. |
 | `grunt watch` | Watches for file changes and rebuilds. |
-| `grunt watch:coffee` | Watches for CoffeeScript source file changes and rebuilds. |
-| `grunt watch:scss` | Watches for SCSS source file changes and rebuilds. |
 | `grunt clean` | Cleans shit away. |
-| `grunt clean:js` | Cleans JavaScript shit away. |
-| `grunt clean:css` | Cleans CSS shit away. |
 | `grunt connect` | Serves the working directory via HTTP at port 8000. |
+
+All tasks, except `connect`, can be suffixed with `:js` or `:css` to only apply the task to the JavaScript or to the Stylesheets respectively.
 
 ## License
 

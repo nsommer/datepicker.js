@@ -100,7 +100,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('build-css', ['clean:css', 'sass', 'cssmin']);
-  grunt.registerTask('build-js', ['clean:js', 'coffee', 'uglify']);
-  grunt.registerTask('build', ['build-css', 'build-js']);
+  grunt.registerTask('build:css', ['clean:css', 'sass', 'cssmin']);
+  grunt.registerTask('build:js', ['clean:js', 'coffee', 'uglify']);
+  grunt.registerTask('build', ['build:css', 'build:js']);
 }
