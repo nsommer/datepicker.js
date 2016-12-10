@@ -74,7 +74,7 @@ module.exports = function (grunt) {
         files: ['coffee/**/*.coffee'],
         tasks: ['build-js']
       },
-      sass: {
+      scss: {
         files: ['scss/**/*.scss'],
         tasks: ['build-css']
       }
