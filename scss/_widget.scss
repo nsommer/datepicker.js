@@ -1,0 +1,99 @@
+//
+// The datepicker widget.
+//
+
+.datepicker {
+  max-width: $datepicker-width;
+  font-size: $font-size;
+  border: 1px solid $border-color;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  @include popover(8px, 1px, $border-color, $background-color);
+}
+
+.datepicker-header {
+  text-align: center;
+  font-size: 1.25em;
+  @include clearfix;
+}
+
+.datepicker-control {
+  display: block;
+  border-style: solid;
+  border-color: $border-color;
+  background-color: $background-color;
+  
+  &:hover,
+  &:active {
+    background-color: $light-grey;
+  }
+}
+
+.datepicker-control-left  {
+  float: left;
+  border-radius: $border-radius 0;
+  border-width: 0 1px 1px 0;
+}
+
+.datepicker-control-right {
+  float: right;
+  border-radius: 0 $border-radius;
+  border-width: 0 0 1px 1px;
+}
+
+.datepicker-month {
+  font-weight: $font-weight-month;
+  vertical-align: middle;
+}
+
+.datepicker-days-header {
+  @include clearfix;
+  list-style-type: none;
+  padding: .25em 0;
+  text-align: center;
+  margin: 0;
+}
+
+.datepicker-days-header > li {
+  display: block;
+  width: $datepicker-width / 7;
+  float: left;
+}
+
+.datepicker-days {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  @include clearfix;
+}
+
+.datepicker-days > li {
+  display: block;
+  float: left;
+  width: $datepicker-width / 7;
+}
+
+@for $i from 1 to 7 {
+  .day-col-coffset-#{$i} {
+    margin-left: ($datepicker-width / 7) * $i;
+  }
+}
+
+.day-button {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  box-shadow: none;
+  box-sizing: border-box;
+  background-color: $light-grey;
+  
+  &:hover,
+  &:active {
+    // TODO
+  }
+  
+  // Selected day
+  &.active {
+    border: 1px solid blue;
+  }
+}

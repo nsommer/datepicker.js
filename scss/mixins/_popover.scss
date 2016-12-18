@@ -1,0 +1,38 @@
+//
+// Mixins that generate popover styles
+//
+// Popovers are small widgets appearing as an overlay
+// with an arrow pointing to the origin that triggered it.
+//
+// Datepickers are popovers containing a calendar widget and
+// refer to an input field.
+//
+
+@mixin popover($arrow-size, $border-size, $border-color, $background-color) {
+  margin-top: $arrow-size;
+  position: relative;
+  
+  &:before,
+  &:after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 0;
+    border-style: solid;
+    left: 50%;
+  }
+  
+  &:before {
+    top: -$arrow-size;
+    border-width: 0 $arrow-size $arrow-size;
+    border-color: $border-color transparent;
+    margin-left: -$arrow-size;
+  }
+  
+  &:after {
+    top: -($arrow-size - $border-size);
+    border-width: 0 ($arrow-size - $border-size) ($arrow-size - $border-size);
+    border-color: $background-color transparent;
+    margin-left: -($arrow-size - $border-size);
+  }
+}
