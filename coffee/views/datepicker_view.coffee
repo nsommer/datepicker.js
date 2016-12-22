@@ -39,7 +39,13 @@ class DatepickerView
       when 10 then "November"
       when 11 then "December"
   
-  # The actual view template
+  # The actual view template.
+  #
+  # The template contains variables/sub methods to fill it
+  # with dynamic content via string interpolation.
+  #
+  # Implemented as a method to reevaluate the string template
+  # every render call.
   view: ->
     """
     <div class="datepicker">
