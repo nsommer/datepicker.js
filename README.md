@@ -25,7 +25,7 @@ The datepicker requires a `.datepicker-container` container around the input for
 The base features already work, but some additions I'd like in this project yet need to be implemented.
 
 - [x] Keyboard shortcuts (arrow keys)
-- [ ] Fix positioning
+- [x] Fix positioning
 - [ ] Decide how to behave on mobile
 - [ ] Make datepicker widget position configurable via data attribute
 - [ ] Use `time` tags in the datepicker widget to better expose the semantics in the HTML

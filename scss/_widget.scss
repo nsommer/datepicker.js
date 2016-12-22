@@ -9,6 +9,8 @@
   box-shadow: $box-shadow;
   border-radius: $border-radius;
   @include popover(8px, 1px, $border-color, $background-color);
+  position: absolute;
+  background-color: $background-color;
 }
 
 .datepicker-header {
