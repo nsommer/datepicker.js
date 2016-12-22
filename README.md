@@ -12,39 +12,28 @@ datepicker.js
 
 ## Usage
 
-This is the markup for an input that uses a datepicker.
+The datepicker requires a `.datepicker-container` container around the input for easier styling and event delegation. `data-toggle="datepicker"` automatically enables the datepicker on an input field, no other javascript required.
 
 ```html
-<input type="datetime-local" data-toggle="datepicker" data-position="top">
-```
-
-This is the markup that builds the datepicker itself.
-
-```html
-<div class="datepicker">
-  <div class="datepicker-titlebar">
-    <button type="button" class="datepicker-control" data-action="prev"></button>
-    <span class="datepicker-month"></span>
-    <button type="button" class="datepicker-control" data-action="next"></button>
-  </div>
-  <ul class="datepicker-days-header">
-    <li>Mon</li>
-    ...
-  </ul>
-  <ul class="datepicker-days">
-    <li class="datepicker-day"><time datetime=""></time></li>
-    ...
-  </ul>
+<div class="datepicker-container">
+  <input type="date" data-toggle="datepicker">
 </div>
 ```
+
+### Feature implementation status
+
+The base features already work, but some additions I'd like in this project yet need to be implemented.
+
+- [x] Keyboard shortcuts (arrow keys)
+- [ ] Make datepicker widget position configurable via data attribute
+- [ ] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
+- [ ] Document the CSS selectors and the SCSS variables
+- [ ] **Maybe:** Add timepicker?
+- [ ] Learn writing JavaScript tests with node.js
 
 ## Browser Support
 
 Well, IE sucks ...
-
-## Documentation
-
-**TODO**
 
 ## Development
 
