@@ -28,7 +28,7 @@ The base features already work, but some additions I'd like in this project yet 
 - [x] Fix positioning
 - [ ] Decide how to behave on mobile
 - [x] Make datepicker widget position configurable via data attribute
-- [ ] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
+- [x] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
 - [ ] Document the CSS selectors and the SCSS variables
 - [ ] **Maybe:** Add timepicker?
 - [ ] Learn writing JavaScript tests with node.js
