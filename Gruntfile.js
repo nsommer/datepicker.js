@@ -120,6 +120,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build:css', ['clean:css', 'sass', 'cssmin']);
   grunt.registerTask('build:js', ['clean:js', 'coffee', 'uglify']);
   grunt.registerTask('build', ['build:css', 'build:js']);
-  grunt.registerTask('test', ['connect:test', 'qunit']);
+  grunt.registerTask('test', ['build', 'connect:test', 'qunit']);
   grunt.registerTask('server', ['connect:dev']);
 }

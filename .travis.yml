@@ -8,4 +8,4 @@ before_install: gem install sass
 before_script:
   - npm install -g grunt-cli
   - npm install
-script: grunt build
+script: grunt test
