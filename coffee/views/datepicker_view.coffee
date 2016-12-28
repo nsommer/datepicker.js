@@ -17,7 +17,8 @@ class DatepickerView
         
     for day in [month_begin.getDate()..month_end.getDate()]
       buttonClasses = if @active_date.getDate() is day then " active" else ""
-      liClasses = if day is 1 then "day-col-coffset-#{month_begin.getDay() - 1}" else ""
+      offsetWidth = if month_begin.getDay() is 0 then 6 else month_begin.getDay() - 1
+      liClasses = if day is 1 then "day-col-coffset-#{offsetWidth}" else ""
       buffer += "<li class=\"#{liClasses}\">
                    <button type=\"button\" class=\"day-button#{buttonClasses}\">
                      <time datetime=\"#{@active_date.getFullYear()}-#{@active_date.getMonth() + 1}-#{day}\">
