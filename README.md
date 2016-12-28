@@ -92,7 +92,7 @@ The Gruntfile provides some useful tasks you can use.
 | `grunt server` | Serves the working directory via HTTP at port 8000. |
 | `grunt test` | Runs the tests. |
 
-All tasks, except `connect`, can be suffixed with `:js` or `:css` to only apply the task to the JavaScript or to the Stylesheets respectively.
+All tasks, except `connect` and `test`, can be suffixed with `:js` or `:css` to only apply the task to the JavaScript or to the Stylesheets respectively.
 
 ## License
 
