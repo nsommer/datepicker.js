@@ -19,7 +19,12 @@ class Datepicker
   #   input - The dom element this datepicker will be attached to
   #   date  - Date object of the currently selected day (default: today)
   constructor: (@input, @date = new Date) ->
-    @view = new DatepickerView(@date)
+    position = @input.data "position"
+    if position?
+      @view = new DatepickerView(@date, position)
+    else
+      @view = new DatepickerView(@date)
+    
     @registerEvents()
     
   rerenderView: ->
@@ -50,7 +55,6 @@ class Datepicker
       datepicker.updateInputVal()
       datepicker.hide()
       
-    # TODO: Remove event handler after hiding datepicker???
     @input.on 'keydown', (event) ->
       console.log 'event.which: ' + event.which
     

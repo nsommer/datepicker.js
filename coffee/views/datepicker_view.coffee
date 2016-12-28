@@ -48,7 +48,7 @@ class DatepickerView
   # every render call.
   view: ->
     """
-    <div class="datepicker">
+    <div class="datepicker datepicker-#{@position}">
       <div class="datepicker-header">
         <button type="button" class="datepicker-control datepicker-control-left" data-action="prev">
           <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
@@ -77,7 +77,10 @@ class DatepickerView
     </div>
     """
   
-  constructor: (@active_date) ->
+  constructor: (@active_date, @position = "top") ->
+  
+  getPosition: ->
+    @position
     
   setActiveDate: (@active_date) ->
     

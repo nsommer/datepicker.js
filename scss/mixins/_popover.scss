@@ -8,9 +8,42 @@
 // refer to an input field.
 //
 
-@mixin popover($arrow-size, $border-size, $border-color, $background-color) {
+// Popovers showing up over its triggering element
+@mixin popover-over($arrow-size, $border-size, $border-color, $background-color) {
+  margin-bottom: $arrow-size;
+  position: absolute;
+  bottom: 100%;
+  
+  &:before,
+  &:after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 0;
+    border-style: solid;
+    left: 50%;
+  }
+  
+  &:before {
+    bottom: -$arrow-size;
+    border-width: $arrow-size $arrow-size 0;
+    border-color: $border-color transparent;
+    margin-left: -$arrow-size;
+  }
+  
+  &:after {
+    bottom: -($arrow-size - $border-size);
+    border-width: ($arrow-size - $border-size) ($arrow-size - $border-size) 0;
+    border-color: $background-color transparent;
+    margin-left: -($arrow-size - $border-size);
+  }
+}
+
+// Popovers showing up under its triggering element
+@mixin popover-under($arrow-size, $border-size, $border-color, $background-color) {
   margin-top: $arrow-size;
-  position: relative;
+  position: absolute;
+  top: 100%;
   
   &:before,
   &:after {

@@ -2,15 +2,27 @@
 // The datepicker widget.
 //
 
+.datepicker-container {
+  position: relative;
+}
+
 .datepicker {
   max-width: $datepicker-width;
   font-size: $font-size;
   border: 1px solid $border-color;
   box-shadow: $box-shadow;
   border-radius: $border-radius;
-  @include popover(8px, 1px, $border-color, $background-color);
+  //@include popover(8px, 1px, $border-color, $background-color);
   position: absolute;
   background-color: $background-color;
+}
+
+.datepicker-top  {
+  @include popover-over(8px, 1px, $border-color, $background-color);
+}
+
+.datepicker-bottom {
+  @include popover-under(8px, 1px, $border-color, $background-color);
 }
 
 .datepicker-header {

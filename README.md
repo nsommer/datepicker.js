@@ -1,4 +1,4 @@
-# datepicker.js
+# datepicker.js [![Build Status](https://travis-ci.com/nsommer/datepicker.js.svg?token=9wV4WzAqZguZ8pXfLL8k&branch=master)](https://travis-ci.com/nsommer/datepicker.js)
 
 All existing datepicker libraries suck, so I wrote my own.
 
@@ -16,7 +16,7 @@ The datepicker requires a `.datepicker-container` container around the input for
 
 ```html
 <div class="datepicker-container">
-  <input type="date" data-toggle="datepicker">
+  <input type="date" data-toggle="datepicker" data-position="top">
 </div>
 ```
 
@@ -27,7 +27,7 @@ The base features already work, but some additions I'd like in this project yet 
 - [x] Keyboard shortcuts (arrow keys)
 - [x] Fix positioning
 - [ ] Decide how to behave on mobile
-- [ ] Make datepicker widget position configurable via data attribute
+- [x] Make datepicker widget position configurable via data attribute
 - [ ] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
 - [ ] Document the CSS selectors and the SCSS variables
 - [ ] **Maybe:** Add timepicker?
