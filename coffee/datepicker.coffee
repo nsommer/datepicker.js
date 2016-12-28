@@ -64,7 +64,10 @@ class Datepicker
         when 38 then datepicker.previousWeek();   datepicker.rerenderView()
         when 40 then datepicker.nextWeek();       datepicker.rerenderView()
         when 13 then datepicker.updateInputVal(); datepicker.hide()
-          
+    
+    $(root).on 'focusout', ->
+      datepicker.updateInputVal()
+      datepicker.hide()
     
   # Show the datepicker.
   show: ->
