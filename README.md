@@ -26,12 +26,19 @@ The base features already work, but some additions I'd like in this project yet 
 
 - [x] Keyboard shortcuts (arrow keys)
 - [x] Fix positioning
-- [ ] Decide how to behave on mobile
 - [x] Make datepicker widget position configurable via data attribute
 - [x] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
-- [ ] Document the CSS selectors and the SCSS variables
+- [ ] Decide how to behave on mobile
 - [ ] **Maybe:** Add timepicker?
 - [ ] Learn writing JavaScript tests with node.js
+
+## Custom styles
+
+The styles for the datepicker widget are found in `scss/_widget.scss`.
+
+The most important style values such as colors, type size etc. are stored in variables with `!default` annotations in `scss/_variables.scss`.
+
+To change the look and feel of the widget - for example to use your application's brand colors - set the corresponding variables **before** importing `datepicker.scss`. This is a popular technique to customize CSS frameworks that use a preprocessor (SASS, LESS).
 
 ## Browser Support
 
