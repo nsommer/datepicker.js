@@ -81,11 +81,27 @@ module.exports = function (grunt) {
     },
 
     connect: {
-      server: {
+      dev: {
         options: {
           port: 8000,
           base: '.',
           keepalive: true
+        }
+      },
+      test: {
+        options: {
+          port: 8000,
+          base: '.'
+        }
+      }
+    },
+    
+    qunit: {
+      all: {
+        options: {
+          urls: [
+            'http://localhost:8000/tests/index.html'
+          ]
         }
       }
     }
@@ -99,8 +115,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
 
   grunt.registerTask('build:css', ['clean:css', 'sass', 'cssmin']);
   grunt.registerTask('build:js', ['clean:js', 'coffee', 'uglify']);
   grunt.registerTask('build', ['build:css', 'build:js']);
+  grunt.registerTask('test', ['connect:test', 'qunit']);
+  grunt.registerTask('server', ['connect:dev']);
 }

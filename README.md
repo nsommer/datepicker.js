@@ -20,18 +20,6 @@ The datepicker requires a `.datepicker-container` container around the input for
 </div>
 ```
 
-### Feature implementation status
-
-The base features already work, but some additions I'd like in this project yet need to be implemented.
-
-- [x] Keyboard shortcuts (arrow keys)
-- [x] Fix positioning
-- [x] Make datepicker widget position configurable via data attribute
-- [x] Use `time` tags in the datepicker widget to better expose the semantics in the HTML
-- [ ] Decide how to behave on mobile
-- [ ] **Maybe:** Add timepicker?
-- [ ] Learn writing JavaScript tests with node.js
-
 ## Custom styles
 
 The styles for the datepicker widget are found in `scss/_widget.scss`.
@@ -101,7 +89,8 @@ The Gruntfile provides some useful tasks you can use.
 | `grunt build` | Builds the js and css files including minified versions and source maps. |
 | `grunt watch` | Watches for file changes and rebuilds. |
 | `grunt clean` | Cleans shit away. |
-| `grunt connect` | Serves the working directory via HTTP at port 8000. |
+| `grunt server` | Serves the working directory via HTTP at port 8000. |
+| `grunt test` | Runs the tests. |
 
 All tasks, except `connect`, can be suffixed with `:js` or `:css` to only apply the task to the JavaScript or to the Stylesheets respectively.
 
