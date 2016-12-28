@@ -3,18 +3,18 @@
 //
 
 // Type
-$font-size: 12px;
+$font-size: 12px !default;
 
-$font-weight-month: 600;
+$font-weight-month: 600 !default;
 
 // Color
-$background-color: #fff;
-$border-color: #ccc;
-$light-grey: #eee;
+$background-color: #fff !default;
+$border-color: #ccc !default;
+$light-grey: #eee !default;
 
 // Border
-$box-shadow: 0 0 5px $border-color;
-$border-radius: 5px;
+$box-shadow: 0 0 5px $border-color !default;
+$border-radius: 5px !default;
 
 // Size
-$datepicker-width: 210px;
+$datepicker-width: 210px !default;
