@@ -40,6 +40,47 @@ The most important style values such as colors, type size etc. are stored in var
 
 To change the look and feel of the widget - for example to use your application's brand colors - set the corresponding variables **before** importing `datepicker.scss`. This is a popular technique to customize CSS frameworks that use a preprocessor (SASS, LESS).
 
+## JavaScript API
+
+The datepicker is intentionally designed to be used without any custom JavaScript. Enabling and configuring it is done entirely by using HTML5 `data-*` attributes.
+
+However, you can still access the datepicker instance and interact with it, if you need to.
+
+```javascript
+var datepicker = Datepicker.find("#my-datepicker")
+
+// Get the selected day as Date object
+datepicker.getDate()
+
+// Get the selected date as ISO8601
+datepicker.getDateAsString()
+
+// Set a new date
+datepicker.setDate(new Date())
+
+// Hide or open it
+datepicker.hide()
+datepicker.show()
+
+// Rerender the widget (e.g. after modifying the date)
+datepicker.rerenderView()
+
+// Write the current date back to the input field
+datepicker.updateInputVal()
+
+// Jump a day backwards or forwards
+datepicker.previousDay()
+datepicker.nextDay()
+
+// Jump a week backwards or forwards
+datepicker.previousWeek()
+datepicker.nextWeek()
+
+// Jump a month backwards or forwards
+datepicker.previousMonth()
+datepicker.nextMonth()
+```
+
 ## Browser Support
 
 Well, IE sucks ...

@@ -116,6 +116,8 @@ class Datepicker
   getDate: ->
     @date
     
+  setDate: (@date) ->
+    
   getDateAsString: ->
     "#{@date.getFullYear()}-#{@date.getMonth() + 1}-#{@date.getDate()}"
     
