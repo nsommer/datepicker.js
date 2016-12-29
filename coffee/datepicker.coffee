@@ -165,7 +165,7 @@ $.fn.datepicker = ->
 # Registers a click event handler that instantiates a Datepicker
 # object on the first click and connects it to the input element in the dom
 # that invoked the event.
-$(document).on "click#{Datepicker.EVENT_NS}.data-api", Datepicker.SELECTORS.INPUT, (event) ->
+$(document).on "focusin#{Datepicker.EVENT_NS}.data-api", Datepicker.SELECTORS.INPUT, (event) ->
   event.preventDefault()
   $this = $(this)
   $this.each -> 
