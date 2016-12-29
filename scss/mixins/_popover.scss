@@ -8,6 +8,8 @@
 // refer to an input field.
 //
 
+// TODO: Refactor the common parts into a base mixin.
+
 // Popovers showing up over its triggering element
 @mixin popover-over($arrow-size, $border-size, $border-color, $background-color) {
   margin-bottom: $arrow-size;
