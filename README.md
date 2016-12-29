@@ -4,11 +4,14 @@ All existing datepicker libraries suck, so I wrote my own.
 
 datepicker.js
 
-* **Is not infinitely configurable**, therefore small (~**5KB** JS, ~**2.5KB** CSS)
+* **Is not infinitely configurable**, therefore small (~**5.5KB** JS, ~**2.5KB** CSS)
 * **Requires zero configuration**, it can be enabled and to some extend customized through HTML5 data attributes
 * **Uses semantic markup** to take advantage of HTML5's expressiveness
 * **Exposes expressive CSS selectors**, to easily swap styles. Write styles for the datepicker that match your UI theme within minutes.
 * **Requires jQuery**
+* **Supports keyboard shortcuts**
+
+To give you some context: This library is less than 300 lines of JavaScript, the datepicker file of jquery-ui is over 2000 lines of JavaScript ...
 
 ## Usage
 
@@ -20,6 +23,8 @@ The datepicker requires a `.datepicker-container` container around the input for
 </div>
 ```
 
+Don't forget to include the stylesheet, the javascript and jquery!
+
 ## Custom styles
 
 The styles for the datepicker widget are found in `scss/_widget.scss`.
@@ -27,6 +32,8 @@ The styles for the datepicker widget are found in `scss/_widget.scss`.
 The most important style values such as colors, type size etc. are stored in variables with `!default` annotations in `scss/_variables.scss`.
 
 To change the look and feel of the widget - for example to use your application's brand colors - set the corresponding variables **before** importing `datepicker.scss`. This is a popular technique to customize CSS frameworks that use a preprocessor (SASS, LESS).
+
+**Note**: The default styles are written with under the assumption that [normalize.css](https://github.com/necolas/normalize.css/) is included into the page. 
 
 ## JavaScript API
 
@@ -72,6 +79,8 @@ datepicker.nextMonth()
 ## Browser Support
 
 Well, IE sucks ...
+
+... however, this library doesn't use any ES6 or other *very new* standards, so it might work on older IEs as well (if you try, tell me about it).
 
 ## Development
 
