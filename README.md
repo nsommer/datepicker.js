@@ -32,10 +32,10 @@ To change the look and feel of the widget - for example to use your application'
 
 The datepicker is intentionally designed to be used without any custom JavaScript. Enabling and configuring it is done entirely by using HTML5 `data-*` attributes.
 
-However, you can still access the datepicker instance and interact with it, if you need to.
+However, you can still access the datepicker instance and interact with it, if you need to. This is done by the jQuery plugin.
 
 ```javascript
-var datepicker = Datepicker.find("#my-datepicker")
+var datepicker = $("#my-datepicker").datepicker()
 
 // Get the selected day as Date object
 datepicker.getDate()

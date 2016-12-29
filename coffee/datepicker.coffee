@@ -7,11 +7,6 @@
 
 # Class that represents the state and methods for a datepicker.
 class Datepicker
-  # Static find method to fetch the Datepicker object attached
-  # to an input element.
-  @find: (selector) ->
-    $(selector).data 'datepicker'
-    
   # Initialize a new Datepicker for a specific input field.
   #
   # Parameters
@@ -120,6 +115,24 @@ class Datepicker
     
   getDateAsString: ->
     "#{@date.getFullYear()}-#{@date.getMonth() + 1}-#{@date.getDate()}"
+
+# jQuery Plugin
+#
+# Fetches the Datepicker instance for a given input field if it exists.
+# Otherwise, it initializes a new Datepicker instance and attaches it
+# to the input field.
+#
+# Example:
+#
+#   $(selector).datepicker()
+$.fn.datepicker = ->
+  datepicker = Datepicker.find this
+  
+  unless datepicker?
+    this.data 'datepicker', (datepicker = new Datepicker(this))
+    
+  return datepicker
+   
     
 # Zero config data api implementation
 #
