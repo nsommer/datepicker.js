@@ -21,22 +21,26 @@ class Datepicker
       @view = new DatepickerView(@date)
     
     @registerEvents()
-    
+  
+  # Rerender the widget.  
   rerenderView: ->
-    @input.parent().find('.datepicker').remove()
+    @input.parent().find(".datepicker").remove()
     @view.setActiveDate @date
     @input.parent().append @view.render()
   
+  # Register click, focus and keyboard events to control the datepicker.
+  # Please notice that the click event handler for the data API are declared
+  # outside of this class.
   registerEvents: ->
     root = @input.parent()
     
     # Previous month button
-    $(root).on 'click', '[data-action="prev"]', =>
+    $(root).on "click", '[data-action="prev"]', =>
       @previousMonth()
       @rerenderView()
     
     # Next month button
-    $(root).on 'click', '[data-action="next"]', =>
+    $(root).on "click", '[data-action="next"]', =>
       @nextMonth()
       @rerenderView()
     
@@ -45,12 +49,12 @@ class Datepicker
     # because we need it in the callback method which itself needs
     # a reference to the clicked button as well.
     datepicker = this
-    $(root).on 'click', '.day-button', ->
+    $(root).on "click", ".day-button", ->
       datepicker.selectDate(this)
       datepicker.updateInputVal()
       datepicker.hide()
       
-    @input.on 'keydown', (event) ->    
+    @input.on "keydown", (event) ->    
       switch event.which
         when 37 then datepicker.previousDay();    datepicker.rerenderView()
         when 39 then datepicker.nextDay();        datepicker.rerenderView()
@@ -58,13 +62,44 @@ class Datepicker
         when 40 then datepicker.nextWeek();       datepicker.rerenderView()
         when 13 then datepicker.updateInputVal(); datepicker.hide()
     
-    $(root).find('.datepicker').on 'focusout', ->
+    $(root).find(".datepicker").on "focusout", ->
       datepicker.updateInputVal()
       datepicker.hide()
     
-  # Show the datepicker.
+  # Show the datepicker widget.
   show: ->
     @input.parent().append @view.render()
+  
+  # Set the date based on a pressed day button.
+  selectDate: (dayButton) ->
+    @date.setDate $(dayButton).text()
+  
+  # Write the currently selected date back to the attached input field.  
+  updateInputVal: ->
+    @input.val @getDateAsString()
+  
+  # Hide the datepicker.
+  hide: ->
+    @input.parent().find(".datepicker").remove()
+  
+  # Get the selected date as a JavaScript date object.
+  getDate: ->
+    @date
+  
+  # Set the selected date.
+  setDate: (@date) ->
+  
+  # Get the selected date as an ISO8601 string.
+  #
+  # Example
+  #
+  #   datepicker.getDateAsString()
+  #     #=> 2016-12-31
+  getDateAsString: ->
+    "#{@date.getFullYear()}-#{@date.getMonth() + 1}-#{@date.getDate()}"
+    
+  
+  # Methods for jumping from the selected date back and forth
     
   nextDay: ->
     @date.setDate @date.getDate() + 1
@@ -95,24 +130,6 @@ class Datepicker
       @date.setFullYear @date.getFullYear() - 1
     else
       @date.setMonth month - 1
-    
-  selectDate: (dayButton) ->
-    @date.setDate $(dayButton).text()
-    
-  updateInputVal: ->
-    @input.val @getDateAsString()
-  
-  # Hide the datepicker.
-  hide: ->
-    @input.parent().find('.datepicker').remove()
-    
-  getDate: ->
-    @date
-    
-  setDate: (@date) ->
-    
-  getDateAsString: ->
-    "#{@date.getFullYear()}-#{@date.getMonth() + 1}-#{@date.getDate()}"
 
 # jQuery Plugin
 #
@@ -124,10 +141,10 @@ class Datepicker
 #
 #   $(selector).datepicker()
 $.fn.datepicker = ->
-  datepicker = this.data 'datepicker'
+  datepicker = this.data "datepicker"
   
   unless datepicker?
-    this.data 'datepicker', (datepicker = new Datepicker(this))
+    this.data "datepicker", (datepicker = new Datepicker(this))
     
   return datepicker
    
@@ -137,13 +154,13 @@ $.fn.datepicker = ->
 # Registers a click event handler that instantiates a Datepicker
 # object on the first click and connects it to the input element in the dom
 # that invoked the event.
-$(document).on 'click.datepicker.data-api', '[data-toggle="datepicker"]', (event) ->
+$(document).on "click.datepicker.data-api", '[data-toggle="datepicker"]', (event) ->
   event.preventDefault()
   $this = $(this)
   $this.each -> 
     $this = $(this)
-    data = $this.data 'datepicker'
+    data = $this.data "datepicker"
     unless data
-      $this.data 'datepicker', (data = new Datepicker($this))
+      $this.data "datepicker", (data = new Datepicker($this))
     data.show()
   
