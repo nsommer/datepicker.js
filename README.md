@@ -13,9 +13,21 @@ datepicker.js
 
 To give you some context: This library is less than 300 lines of JavaScript, the datepicker file of jquery-ui is over 2000 lines of JavaScript ...
 
+## Installation
+
+Unfortunately, all common datepicker names are already reserved in the npm package repository. However, both npm and bower - the two most popular JavaScript package managers - support installation from GitHub repository.
+
+```bash
+# If you use npm
+npm install --save-dev nsommer/datepicker.js
+
+# If you use bower
+bower install nsommer/datepicker.js --save
+```
+
 ## Usage
 
-The datepicker requires a `.datepicker-container` container around the input for easier styling and event delegation. `data-toggle="datepicker"` automatically enables the datepicker on an input field, no other javascript required.
+The datepicker requires a `.datepicker-container` container around the input for easier styling and event delegation. `data-toggle="datepicker"` automatically enables the datepicker on an input field, no other JavaScript required.
 
 ```html
 <div class="datepicker-container">
@@ -23,7 +35,7 @@ The datepicker requires a `.datepicker-container` container around the input for
 </div>
 ```
 
-Don't forget to include the stylesheet, the javascript and jquery!
+Don't forget to include the stylesheet, the JavaScript and jquery!
 
 ## Custom styles
 
