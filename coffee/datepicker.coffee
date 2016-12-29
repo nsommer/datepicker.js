@@ -50,9 +50,7 @@ class Datepicker
       datepicker.updateInputVal()
       datepicker.hide()
       
-    @input.on 'keydown', (event) ->
-      console.log 'event.which: ' + event.which
-    
+    @input.on 'keydown', (event) ->    
       switch event.which
         when 37 then datepicker.previousDay();    datepicker.rerenderView()
         when 39 then datepicker.nextDay();        datepicker.rerenderView()
@@ -60,7 +58,7 @@ class Datepicker
         when 40 then datepicker.nextWeek();       datepicker.rerenderView()
         when 13 then datepicker.updateInputVal(); datepicker.hide()
     
-    $(root).on 'focusout', ->
+    $(root).find('.datepicker').on 'focusout', ->
       datepicker.updateInputVal()
       datepicker.hide()
     
