@@ -126,7 +126,7 @@ class Datepicker
 #
 #   $(selector).datepicker()
 $.fn.datepicker = ->
-  datepicker = Datepicker.find this
+  datepicker = this.data 'datepicker'
   
   unless datepicker?
     this.data 'datepicker', (datepicker = new Datepicker(this))
