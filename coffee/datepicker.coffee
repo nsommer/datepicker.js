@@ -1,10 +1,3 @@
-###
-  datepicker.js
-  Copyright (C) by Nils Sommer, 2016
-  
-  Released under the MIT license.
-###
-
 # Class that represents the state and methods for a datepicker.
 class Datepicker
   @EVENT_NS: ".datepicker"

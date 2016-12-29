@@ -25,6 +25,7 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/datepicker.js': [
+            'coffee/banner.coffee',
             'coffee/views/*.coffee',
             'coffee/datepicker.coffee'
           ]
