@@ -7,6 +7,26 @@
 
 # Class that represents the state and methods for a datepicker.
 class Datepicker
+  @EVENT_NS: ".datepicker"
+  
+  @KEYS:
+    LEFT:   37
+    RIGHT:  39
+    UP:     38
+    DOWN:   40
+    ENTER:  13
+    TAB:    9
+    ESCAPE: 27
+    
+  @SELECTORS:
+    WIDGET:   ".datepicker"
+    INPUT:    '[data-toggle="datepicker"]'
+    BTN_PREV: '[data-action="prev"]'
+    BTN_NEXT: '[data-action="next"]'
+    BTN_DAY:  ".day-button"
+    
+  @DATA_ATTR: "datepicker"
+  
   # Initialize a new Datepicker for a specific input field.
   #
   # Parameters
@@ -24,7 +44,7 @@ class Datepicker
   
   # Rerender the widget.  
   rerenderView: ->
-    @input.parent().find(".datepicker").remove()
+    @input.parent().find(Datepicker.SELECTORS.WIDGET).remove()
     @view.setActiveDate @date
     @input.parent().append @view.render()
   
@@ -35,12 +55,12 @@ class Datepicker
     root = @input.parent()
     
     # Previous month button
-    $(root).on "click", '[data-action="prev"]', =>
+    $(root).on "click#{Datepicker.EVENT_NS}", Datepicker.SELECTORS.BTN_PREV, =>
       @previousMonth()
       @rerenderView()
     
     # Next month button
-    $(root).on "click", '[data-action="next"]', =>
+    $(root).on "click#{Datepicker.EVENT_NS}", Datepicker.SELECTORS.BTN_NEXT, =>
       @nextMonth()
       @rerenderView()
     
@@ -49,22 +69,20 @@ class Datepicker
     # because we need it in the callback method which itself needs
     # a reference to the clicked button as well.
     datepicker = this
-    $(root).on "click", ".day-button", ->
+    $(root).on "click#{Datepicker.EVENT_NS}", Datepicker.SELECTORS.BTN_DAY, ->
       datepicker.selectDate(this)
       datepicker.updateInputVal()
       datepicker.hide()
       
-    @input.on "keydown", (event) ->    
+    @input.on "keydown#{Datepicker.EVENT_NS}", (event) ->    
       switch event.which
-        when 37 then datepicker.previousDay();    datepicker.rerenderView()
-        when 39 then datepicker.nextDay();        datepicker.rerenderView()
-        when 38 then datepicker.previousWeek();   datepicker.rerenderView()
-        when 40 then datepicker.nextWeek();       datepicker.rerenderView()
-        when 13 then datepicker.updateInputVal(); datepicker.hide()
-    
-    $(root).find(".datepicker").on "focusout", ->
-      datepicker.updateInputVal()
-      datepicker.hide()
+        when Datepicker.KEYS.LEFT   then datepicker.previousDay();    datepicker.rerenderView()
+        when Datepicker.KEYS.RIGHT  then datepicker.nextDay();        datepicker.rerenderView()
+        when Datepicker.KEYS.UP     then datepicker.previousWeek();   datepicker.rerenderView()
+        when Datepicker.KEYS.DOWN   then datepicker.nextWeek();       datepicker.rerenderView()
+        when Datepicker.KEYS.ENTER  then datepicker.updateInputVal(); datepicker.hide(); return false; # Don't submit the form!
+        when Datepicker.KEYS.TAB    then datepicker.hide() # Hide when tabing out
+        when Datepicker.KEYS.ESCAPE then datepicker.hide() # Hide when pressing escape
     
   # Show the datepicker widget.
   show: ->
@@ -80,7 +98,7 @@ class Datepicker
   
   # Hide the datepicker.
   hide: ->
-    @input.parent().find(".datepicker").remove()
+    @input.parent().find(Datepicker.SELECTORS.WIDGET).remove()
   
   # Get the selected date as a JavaScript date object.
   getDate: ->
@@ -141,10 +159,10 @@ class Datepicker
 #
 #   $(selector).datepicker()
 $.fn.datepicker = ->
-  datepicker = this.data "datepicker"
+  datepicker = this.data Datepicker.DATA_ATTR
   
   unless datepicker?
-    this.data "datepicker", (datepicker = new Datepicker(this))
+    this.data Datepicker.DATA_ATTR, (datepicker = new Datepicker(this))
     
   return datepicker
    
@@ -154,13 +172,23 @@ $.fn.datepicker = ->
 # Registers a click event handler that instantiates a Datepicker
 # object on the first click and connects it to the input element in the dom
 # that invoked the event.
-$(document).on "click.datepicker.data-api", '[data-toggle="datepicker"]', (event) ->
+$(document).on "click#{Datepicker.EVENT_NS}.data-api", Datepicker.SELECTORS.INPUT, (event) ->
   event.preventDefault()
   $this = $(this)
   $this.each -> 
     $this = $(this)
-    data = $this.data "datepicker"
+    data = $this.data Datepicker.DATA_ATTR
     unless data
-      $this.data "datepicker", (data = new Datepicker($this))
+      $this.data Datepicker.DATA_ATTR, (data = new Datepicker($this))
     data.show()
   
+# Global click handler to register dismiss clicks (= clicks outside the
+# widget).
+# See https://css-tricks.com/dangers-stopping-event-propagation/
+$(document).on "click#{Datepicker.EVENT_NS}.dismiss", (event) ->
+  $target = $(event.target)
+  unless $target.closest(Datepicker.SELECTORS.WIDGET).length or $target.closest(Datepicker.SELECTORS.INPUT).length
+    $(Datepicker.SELECTORS.INPUT).each ->
+      if (datepicker = $(this).data Datepicker.DATA_ATTR)
+        datepicker.hide()
+    
