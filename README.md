@@ -4,7 +4,7 @@ All existing datepicker libraries suck, so I wrote my own.
 
 datepicker.js
 
-* **Is not infinitely configurable**, therefore small
+* **Is not infinitely configurable**, therefore small (~**5KB** JS, ~**2.5KB** CSS)
 * **Requires zero configuration**, it can be enabled and to some extend customized through HTML5 data attributes
 * **Uses semantic markup** to take advantage of HTML5's expressiveness
 * **Exposes expressive CSS selectors**, to easily swap styles. Write styles for the datepicker that match your UI theme within minutes.
