@@ -3,18 +3,32 @@
   "version": "0.1.0",
   "description": "Zero-configuration datepicker with swappable CSS, semantic HTML5 markup and customizable through HTML5 data attributes",
   "main": "dist/datepicker.js",
-  "directories": {
-    "doc": "docs"
+  "files": [
+    "coffee",
+    "scss",
+    "dist",
+    "Gruntfile.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsommer/datepicker.js.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bugs": {
+    "url": "https://github.com/nsommer/datepicker.js/issues"
   },
   "keywords": [
     "date",
     "time",
     "datepicker",
-    "timepicker",
-    "js"
+    "js",
+    "javascript",
+    "coffeescript",
+    "sass",
+    "scss",
+    "iso8601",
+    "html5"
   ],
   "author": "Nils Sommer",
   "license": "MIT",
