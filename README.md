@@ -1,4 +1,4 @@
-# datepicker.js [![Build Status](https://travis-ci.com/nsommer/datepicker.js.svg?token=9wV4WzAqZguZ8pXfLL8k&branch=master)](https://travis-ci.com/nsommer/datepicker.js)
+# datepicker.js [![Build Status](https://travis-ci.org/nsommer/datepicker.js.svg?branch=master)](https://travis-ci.org/nsommer/datepicker.js)
 
 All existing datepicker libraries suck, so I wrote my own.
 
