@@ -46,4 +46,15 @@
     var expectedDate = new Date(2017, 0, 1)
     assert.deepEqual(this.datepicker.getDate(), expectedDate)
   })
+  
+  QUnit.test("ISO8601 formating", function (assert) {
+    this.datepicker.setDate(new Date(2016, 11, 31))
+    assert.equal(this.datepicker.getDateAsString(), "2016-12-31")
+    
+    this.datepicker.setDate(new Date(2017, 0, 1))
+    assert.equal(this.datepicker.getDateAsString(), "2017-01-01")
+    
+    this.datepicker.setDate(new Date(1999, 7, 20))
+    assert.equal(this.datepicker.getDateAsString(), "1999-08-20")
+  })
 })(jQuery)
