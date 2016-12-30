@@ -115,6 +115,18 @@ The Gruntfile provides some useful tasks you can use.
 
 All tasks, except `connect` and `test`, can be suffixed with `:js` or `:css` to only apply the task to the JavaScript or to the Stylesheets respectively.
 
+## Contributing
+
+1. Open an issue
+2. Fork repo
+3. Create branch with meaningful name (e.g. `pr-fix-xyz`, `pr-feature-xyz`)
+4. Commit changes
+5. Open pull request
+
+## Changelog
+
+See `CHANGELOG.md`.
+
 ## License
 
-The source code and documentation of this project is available under the MIT license.
+The source code and documentation of this project is available under the [MIT license](https://opensource.org/licenses/MIT).
