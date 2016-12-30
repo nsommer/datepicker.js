@@ -8,13 +8,16 @@
 // refer to an input field.
 //
 
-// TODO: Refactor the common parts into a base mixin.
-
-// Popovers showing up over its triggering element
-@mixin popover-over($arrow-size, $border-size, $border-color, $background-color) {
-  margin-bottom: $arrow-size;
+@mixin popover-base($position, $arrow-size, $border-size, $border-color, $background-color) {
   position: absolute;
-  bottom: 100%;
+  
+  @if $position == "top" {
+    margin-bottom: $arrow-size;
+    bottom: 100%;
+  } @else if $position == "bottom" {
+    margin-top: $arrow-size;
+    top: 100%;
+  }
   
   &:before,
   &:after {
@@ -27,47 +30,38 @@
   }
   
   &:before {
-    bottom: -$arrow-size;
-    border-width: $arrow-size $arrow-size 0;
     border-color: $border-color transparent;
     margin-left: -$arrow-size;
+    
+    @if $position == "top" {
+      bottom: -$arrow-size;
+      border-width: $arrow-size $arrow-size 0;
+    } @else if $position == "bottom" {
+      top: -$arrow-size;
+      border-width: 0 $arrow-size $arrow-size;
+    }
   }
   
   &:after {
-    bottom: -($arrow-size - $border-size);
-    border-width: ($arrow-size - $border-size) ($arrow-size - $border-size) 0;
     border-color: $background-color transparent;
     margin-left: -($arrow-size - $border-size);
+    
+    @if $position == "top" {
+      bottom: -($arrow-size - $border-size);
+      border-width: ($arrow-size - $border-size) ($arrow-size - $border-size) 0;
+    } @else if $position == "bottom" {
+      top: -($arrow-size - $border-size);
+      border-width: 0 ($arrow-size - $border-size) ($arrow-size - $border-size);
+    }
   }
+}
+
+// Popovers showing up over its triggering element
+@mixin popover-over($arrow-size, $border-size, $border-color, $background-color) {
+  @include popover-base("top", $arrow-size, $border-size, $border-color, $background-color);
 }
 
 // Popovers showing up under its triggering element
 @mixin popover-under($arrow-size, $border-size, $border-color, $background-color) {
-  margin-top: $arrow-size;
-  position: absolute;
-  top: 100%;
-  
-  &:before,
-  &:after {
-    display: block;
-    position: absolute;
-    content: "";
-    width: 0;
-    border-style: solid;
-    left: 50%;
-  }
-  
-  &:before {
-    top: -$arrow-size;
-    border-width: 0 $arrow-size $arrow-size;
-    border-color: $border-color transparent;
-    margin-left: -$arrow-size;
-  }
-  
-  &:after {
-    top: -($arrow-size - $border-size);
-    border-width: 0 ($arrow-size - $border-size) ($arrow-size - $border-size);
-    border-color: $background-color transparent;
-    margin-left: -($arrow-size - $border-size);
-  }
+  @include popover-base("bottom", $arrow-size, $border-size, $border-color, $background-color);
 }
