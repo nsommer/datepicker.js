@@ -4,6 +4,7 @@
 
 // Type
 $font-size: 12px !default;
+$font-size-header: 1.25em !default;
 
 $font-weight-month: 600 !default;
 
@@ -11,12 +12,14 @@ $font-weight-month: 600 !default;
 $text-color: 333;
 $background-color: #fff !default;
 $border-color: #ccc !default;
-$light-grey: #eee !default;
 $active-color: #0275d8;
+$datepicker-control-background-color: #eee !default;
+$day-button-background-color: #eee !default;
 
 // Border
 $box-shadow: 0 0 5px $border-color !default;
 $border-radius: 5px !default;
 
 // Size
-$datepicker-width: 210px !default;
+$datepicker-width: 210px !default; // Should be in px and divisible by 7
+$popover-arrow-size: 8px !default;

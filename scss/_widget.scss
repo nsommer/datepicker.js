@@ -18,16 +18,16 @@
 }
 
 .datepicker-top  {
-  @include popover-over(8px, 1px, $border-color, $background-color);
+  @include popover-over($popover-arrow-size, 1px, $border-color, $background-color);
 }
 
 .datepicker-bottom {
-  @include popover-under(8px, 1px, $border-color, $background-color);
+  @include popover-under($popover-arrow-size, 1px, $border-color, $background-color);
 }
 
 .datepicker-header {
   text-align: center;
-  font-size: 1.25em;
+  font-size: $font-size-header;
   @include clearfix;
 }
 
@@ -39,7 +39,7 @@
   
   &:hover,
   &:active {
-    background-color: $light-grey;
+    background-color: $datepicker-control-background-color;
   }
 }
 
@@ -101,7 +101,7 @@
   border: 1px solid transparent;
   box-shadow: none;
   box-sizing: border-box;
-  background-color: $light-grey;
+  background-color: $day-button-background-color;
   
   &:hover,
   &:active {
