@@ -107,7 +107,15 @@ class Datepicker
   #   datepicker.getDateAsString()
   #     #=> 2016-12-31
   getDateAsString: ->
-    "#{@date.getFullYear()}-#{@date.getMonth() + 1}-#{@date.getDate()}"
+    year  = @date.getFullYear()
+    month = @date.getMonth() + 1
+    day   = @date.getDate()
+    
+    # Add leading zeros if necessary
+    month = "0#{month}" if month < 10
+    day   = "0#{day}"   if day   < 10
+    
+    "#{year}-#{month}-#{day}"
     
   
   # Methods for jumping from the selected date back and forth
