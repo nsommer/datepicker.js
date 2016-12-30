@@ -108,19 +108,19 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-coffee')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-qunit')
 
-  grunt.registerTask('build:css', ['clean:css', 'sass', 'cssmin']);
-  grunt.registerTask('build:js', ['clean:js', 'coffee', 'uglify']);
-  grunt.registerTask('build', ['build:css', 'build:js']);
-  grunt.registerTask('test', ['build', 'connect:test', 'qunit']);
-  grunt.registerTask('server', ['connect:dev']);
+  grunt.registerTask('build:css', ['clean:css', 'sass', 'cssmin'])
+  grunt.registerTask('build:js', ['clean:js', 'coffee', 'uglify'])
+  grunt.registerTask('build', ['build:css', 'build:js'])
+  grunt.registerTask('test', ['build', 'connect:test', 'qunit'])
+  grunt.registerTask('server', ['connect:dev'])
 }
